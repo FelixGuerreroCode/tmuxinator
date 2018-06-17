@@ -1,0 +1,17 @@
+# ~/.tmuxinator/py.yml
+
+name: python learning
+root: ~/dev/python/
+
+startup_window: editor
+
+windows:
+  - empty: ls 
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim learning.py
+        - ./autoreload.py python3 learning.py 
+  - logs: ls 
+  - cmd: ls
+  - tmuxinator: vi ~/.tmuxinator/py.yml 

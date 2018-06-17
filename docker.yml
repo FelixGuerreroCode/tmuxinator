@@ -1,7 +1,7 @@
-# ~/.tmuxinator/abacus.yml
+# ~/.tmuxinator/docker.yml
 
-name: abacus
-root: ~/dev/abacus
+name: docker
+root: ~/dev/docker/myexpress
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,14 +25,15 @@ startup_window: editor
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t abacus
+# post: tmux -CC attach -t express
 
 windows:
-  - start:
-  - editor:
-      layout: main-vertical
-      panes:
-        - vim abacus.txt
-        - guard
-  - server: 
-  - logs: 
+  - empty: ls 
+  - editor: vi routes/docker.js
+  - testing: npm run mocha-test
+  - server : nodemon app.js
+  - livereload: livereload . -d -e "jade"
+  - logs: ls 
+  - cmd: ls
+  - tmuxinator: vi ~/.tmuxinator/docker.yml 
+#- Dockerfile: vi Dockerfile

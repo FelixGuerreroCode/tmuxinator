@@ -1,7 +1,7 @@
-# ~/.tmuxinator/learnreact.yml
+# ~/.tmuxinator/json_tutorial.yml
 
-name: learnreact
-root: ~/dev/learnreact
+name: json_tutorial
+root: ~/dev/node/tutorial
 
 # Optional tmux socket
 # socket_name: foo
@@ -19,21 +19,17 @@ root: ~/dev/learnreact
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-startup_window: dev
+startup_window: editor
 
 # Controls whether the tmux session should be attached to automatically. Defaults to true.
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t webpack
+# post: tmux -CC attach -t json_tutorial
 
 windows:
-  - start: ls
-  - dev:
-      layout: main-vertical
-      panes:
-        - vim /Users/felixg/dev/learnreact/client/js/app.js
-        - ls
-  - server: npm run-script webpack
-  - logs: ls
-  - extra: ls
+  - tmp: clear
+  - editor: vim
+  - command: clear
+  - server: clear 
+  - logs: clear

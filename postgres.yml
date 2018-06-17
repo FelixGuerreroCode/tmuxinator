@@ -1,7 +1,7 @@
-# ~/.tmuxinator/bootstrap.yml
+# ~/.tmuxinator/postgres.yml
 
-name: bootstrap
-root: ~/dev/bootstrap/
+name: postgres
+root: ~/dev/sql/postgres
 
 # Optional tmux socket
 # socket_name: foo
@@ -19,22 +19,19 @@ root: ~/dev/bootstrap/
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-startup_window: dev
+# startup_window: editor
+
+# Specitifes (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+startup_pane: 2
 
 # Controls whether the tmux session should be attached to automatically. Defaults to true.
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t bootstrap
+# post: tmux -CC attach -t postgres
 
 windows:
-  - empty : ls
-  - dev :
-      layout: main-vertical
-      panes:
-        - cd subjects && cd bootstrap && vim
-        - npm start
-  - server: cd subjects && cd boostrap
-  - logs: cd subjects && cd boostrap
-  - temp: cd subjects && cd boostrap
-    
+  - editor: cls
+  - console : cls
+  - server: brew services stop postgresql
+  - logs: cls

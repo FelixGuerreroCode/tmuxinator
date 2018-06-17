@@ -1,0 +1,18 @@
+# ~/.tmuxinator/mywebpack.yml
+
+name: mywebpack
+root: ~/dev/javascript/mywebpack
+
+startup_window: editor
+
+windows:
+  - empty: ls 
+  - editor:
+      layout: main-vertical
+      panes:
+        - vi dist/index.html
+        - npm run test:mocha
+  - cmd : npm run develop
+  - server : ls
+  - logs: ls 
+  - tmuxinator: vi ~/.tmuxinator/mywebpack.yml 

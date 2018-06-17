@@ -1,7 +1,7 @@
-# ~/.tmuxinator/seneca.yml
+# ~/.tmuxinator/express.yml
 
-name: seneca
-root: ~/dev/seneca
+name: express
+root: ~/dev/express_app
 
 # Optional tmux socket
 # socket_name: foo
@@ -19,22 +19,18 @@ root: ~/dev/seneca
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-startup_window: dev
+startup_window: editor
 
 # Controls whether the tmux session should be attached to automatically. Defaults to true.
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t seneca
+# post: tmux -CC attach -t express
 
 windows:
-  - buffer: ls
-  - dev:
-      layout: 26a0,204x62,0,0{101x62,0,0,1,102x62,102,0[102x31,102,0,5,102x30,102,32,7]}]
-      panes:
-        - vim main.js
-        - ls
-        - ls
-  - logs: ls
-  - server: ls
-  - buffer : ls
+  - empty: ls 
+  - editor: vi views/index.jade
+  - server: DEBUG=express_example nodemon npm start
+  - livereload: livereloadx [-p 35729] ~/dev/express_app/
+  - command: ls
+  - logs: ls 

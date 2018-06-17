@@ -1,5 +1,7 @@
-name: training
-root: ~/dev/training/react/react-subjects
+# ~/.tmuxinator/sql.yml
+
+name: sql
+root: ~/sql
 
 # Optional tmux socket
 # socket_name: foo
@@ -16,15 +18,16 @@ root: ~/dev/training/react/react-subjects
 # Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
 
-startup_window: dev
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t sql
 
 windows:
-  - temp: clear
-  - dev:
-      layout: main-vertical
-      panes:
-        - vim
-        - c
-  - server: ls
-  - logs: ls
-  - extra: ls
+  - editor: clear
+  - server: clear
+  - logs: clear

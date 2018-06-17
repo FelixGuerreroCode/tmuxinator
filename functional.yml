@@ -1,7 +1,7 @@
-# ~/.tmuxinator/npm_build.yml
+# ~/.tmuxinator/functional.yml
 
-name: npm_build
-root: ~/dev/npm_build
+name: functional
+root: ~/dev/javascript/functional
 
 # Optional tmux socket
 # socket_name: foo
@@ -19,20 +19,20 @@ root: ~/dev/npm_build
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-# startup_window: logs
+startup_window: editor
 
 # Controls whether the tmux session should be attached to automatically. Defaults to true.
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t npm_build
+# post: tmux -CC attach -t javascript_functional
 
 windows:
-  - temp: ls
-  - editor:
-      layout: main-vertical
-      panes:
-        - vim
-        - ls
+  - empty: ls 
+  - editor: vi test/test.js
   - server: ls
-  - logs: ls
+  - sass: npm run watch-css
+  - command: ls
+  - logs: ls 
+  - livereload: livereloadx -p 35729 ~/dev/javascript/functional
+  - root: cd ~
