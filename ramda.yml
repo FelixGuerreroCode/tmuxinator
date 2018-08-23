@@ -1,0 +1,18 @@
+# ~/.tmuxinator/ramda.yml
+
+name: ramda
+root: ~/dev/javascript/ramda
+
+startup_window: editor
+
+windows:
+  - empty: ls 
+  - editor:
+      layout: main-vertical
+      panes:
+        - vi tests/add.spec.js
+        - npm run test:mocha
+  - cmd : npm run develop
+  - server : ls
+  - logs: ls 
+  - tmuxinator: vi ~/.tmuxinator/ramda.yml 
